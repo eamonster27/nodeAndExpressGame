@@ -10,27 +10,45 @@
     <header>
       <h3>Mystery Word</h3>
       <div id="guesses-left">
-        <!-- INSERT GUESSES LEFT AS <h3> -->
-        <h3>You have {#} guesses left</h3>
+        <h3>You have {{remainingGuesses}} guesses left</h3>
       </div>
     </header>
 
     <main>
+      <h1>{{gameStatus}}</h1>
       <div id="mystery-word">
-        <!-- INSERT UNDERSCORES || LETTERS AS <h3> -->
-
+        {{#hiddenWord}}
+          <h3>{{.}}</h3>
+        {{/hiddenWord}}
       </div>
 
-      <form id="user-input-submit" action="/" method="post">
-        <input type="text" name="guess" value="">
-        <input type="submit" name="make-guess" value="Make A Guess!">
+      {{#gameEnd}}
+      <form id="user-input-submit" action="/guess" method="post">
+        <input type="text" name="guess" placeholder="Guess one letter" disabled>
+        <input type="submit" name="" value="Make A Guess!" disabled>
       </form>
+      <form class="restart" action="/reset" method="get">
+        <input type="submit" name="" value="Reset">
+      </form>
+      {{/gameEnd}}
+      {{^gameEnd}}
+      <form id="user-input-submit" action="/guess" method="post">
+        <input type="text" name="guess" placeholder="Guess one letter" maxlength="1">
+        <input type="submit" name="" value="Make A Guess!" maxlength="1">
+      </form>
+      <div class="errors">
+        {{#errors}}
+          {{msg}}
+        {{/errors}}
+      </div>
+      {{/gameEnd}}
 
       <div id="letters-guessed-wrapper">
         <h3>Letters guessed: </h3>
         <div class="letters-guessed">
-          <!-- INSERT LETTERS AS <p> -->
-
+          {{#guessedLetters}}
+            <p>{{.}}</p>
+          {{/guessedLetters}}
         </div>
       </div>
     </main>

@@ -3,16 +3,25 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "mustache-express": "^1.2.5",
-    "pg": "^6.4.0",
-    "sequelize": "^4.2.1"
-  }
+    "express-validator": "^3.2.1",
+    "fs": "0.0.1-security",
+    "mustache-express": "^1.2.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eamonster27/nodeAndExpressGame.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eamonster27/nodeAndExpressGame/issues"
+  },
+  "homepage": "https://github.com/eamonster27/nodeAndExpressGame#readme"
 }
